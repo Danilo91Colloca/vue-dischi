@@ -25,16 +25,17 @@ new Vue({
 	methods : {
 		genreFilter : function(){
 			const self = this;
-			this.genreList = this.diskList.filter((element) => {
-				
-				return	self.genreList = element.genre
-				
+			const arrayGenre = [];
+			const newArrayGenre = [];
+			this.diskList.forEach(element => {
+				arrayGenre.push(element.genre)
+			});
+			this.genreList = arrayGenre.filter((element, index)=>{
+				return arrayGenre.indexOf(element) === index
 			})
-		}
-		
+		}		
 	}
 	
-
 });
 Vue.config.devtools = true
   
