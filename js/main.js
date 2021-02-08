@@ -11,6 +11,7 @@ new Vue({
 	el : '#app',
 	data : {
 	 diskList : [],
+	 genreList : [],
 	 genreSelect : 'All'
 	},
 	mounted(){ 
@@ -18,9 +19,22 @@ new Vue({
 	 axios.get('https://flynn.boolean.careers/exercises/api/array/music')
 	 .then(function(queryReturn){
 		//soluzione senza push
-		self.diskList = queryReturn.data.response
+		self.diskList = queryReturn.data.response;
 	 });
+	},
+	methods : {
+		genreFilter : function(){
+			const self = this;
+			this.genreList = this.diskList.filter((element) => {
+				
+				return	self.genreList = element.genre
+				
+			})
+		}
+		
 	}
+	
+
 });
 Vue.config.devtools = true
   

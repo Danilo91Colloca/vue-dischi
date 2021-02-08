@@ -13,18 +13,15 @@
     <body>
         <div id="app">
             <header>
-                <div class="container">
+                <div class="container" >
                     <img src="logo.png" alt="logo" />
                 </div>
             </header>
             
             <div class="select-container">
-                <select name="" v-model="genreSelect">
+                <select name="" v-model="genreSelect" >
                     <option value="All">All</option>
-                    <option value="Rock">Rock</option>
-                    <option value="Pop">Pop</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Metal">Metal</option>
+                    <option v-for="element in diskList">{{element.genre}}</option>
                 </select>
             </div>
            
