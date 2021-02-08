@@ -10,16 +10,15 @@ Bonus (per oggi pomeriggio): Creare una select con i seguenti generi: pop, rock,
 new Vue({
 	el : '#app',
 	data : {
-	 diskList : []
+	 diskList : [],
+	 genreSelect : 'All'
 	},
 	mounted(){ 
 	 const self = this; 
 	 axios.get('https://flynn.boolean.careers/exercises/api/array/music')
 	 .then(function(queryReturn){
-
 		//soluzione senza push
 		self.diskList = queryReturn.data.response
-
 	 });
 	}
 });

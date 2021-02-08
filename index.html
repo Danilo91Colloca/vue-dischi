@@ -17,10 +17,22 @@
                     <img src="logo.png" alt="logo" />
                 </div>
             </header>
+            
+            <div class="select-container">
+                <select name="" v-model="genreSelect">
+                    <option value="All">All</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Metal">Metal</option>
+                </select>
+            </div>
+           
     
             <div class="cds-container container">
                 <!-- Disco ad esempio -->
-                <div class="cd" v-for="element in diskList">
+                <div class="cd" v-for="element in diskList" 
+                v-if="element.genre === genreSelect || genreSelect === 'All' ">
                     <img :src="element.poster" alt="">
                     <h3>{{element.title}}</h3>
                     <span class="author">{{element.author}}</span>
