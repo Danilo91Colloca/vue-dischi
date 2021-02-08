@@ -18,20 +18,25 @@ new Vue({
 	 const self = this; 
 	 axios.get('https://flynn.boolean.careers/exercises/api/array/music')
 	 .then(function(queryReturn){
-		//soluzione senza push
 		self.diskList = queryReturn.data.response;
 	 });
 	},
 	methods : {
+		//filtro per avere un solo genere per categoria
 		genreFilter : function(){
 			const self = this;
 			const arrayGenre = [];
-			const newArrayGenre = [];
+			//creo un array contente solo il genere
 			this.diskList.forEach(element => {
 				arrayGenre.push(element.genre)
 			});
-			this.genreList = arrayGenre.filter((element, index)=>{
+			//popolo il dato genreList
+			this.genreList = arrayGenre.filter((element, index)=>{	
+				//console log di come funziona il filtro
+				console.log(arrayGenre.indexOf(element),element,index, arrayGenre.indexOf(element) === index );
+				//ritorna solo gli elementi con il loro primo indice uguale ad index
 				return arrayGenre.indexOf(element) === index
+				
 			})
 		}		
 	}
