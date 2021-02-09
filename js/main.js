@@ -19,6 +19,7 @@ new Vue({
 	 axios.get('https://flynn.boolean.careers/exercises/api/array/music')
 	 .then(function(queryReturn){
 		self.diskList = queryReturn.data.response;
+		self.genreFilter() //lancio la funzione direttamente al caricamento
 	 });
 	},
 	methods : {
